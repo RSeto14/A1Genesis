@@ -3,7 +3,6 @@ Scripts/CPG-RL/Logs/Networks
 Scripts/CPG-RL/Tools
 Scripts/Res4CPG-RL/Logs/Networks
 video2gif.py
-*.pt
 *.csv
 *.mp4
 Videos

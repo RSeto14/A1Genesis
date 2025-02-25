@@ -90,3 +90,16 @@ actuatorをgeneralに変更する必要がある
 self.terrain = self.scene.add_entity(gs.morphs.Terrain(n_subterrains=(2,2),subterrain_types=[["fractal_terrain","fractal_terrain"],["fractal_terrain","fractal_terrain"]],subterrain_size=(10,10),horizontal_scale=0.25,vertical_scale=0.005,visualization=True))
 ```
 
+### Boxの挿入
+
+```python
+self.scene.add_entity(gs.morphs.Box(pos=(0,0,0),size=(1,1,1),visualization=True))
+```
+
+### 摩擦
+
+```python
+self.terrain.geoms[0].set_friction(self.env_cfg["friction"][0])
+```
+
+

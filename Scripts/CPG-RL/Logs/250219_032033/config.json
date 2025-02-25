@@ -1,0 +1,274 @@
+{
+    "train_cfg": {
+        "algorithm": {
+            "clip_param": 0.2,
+            "desired_kl": 0.01,
+            "entropy_coef": 0.05,
+            "gamma": 0.99,
+            "lam": 0.95,
+            "learning_rate": 0.0005,
+            "max_grad_norm": 1.0,
+            "num_learning_epochs": 5,
+            "num_mini_batches": 4,
+            "schedule": "adaptive",
+            "use_clipped_value_loss": true,
+            "value_loss_coef": 1.0
+        },
+        "init_member_classes": {},
+        "policy": {
+            "activation": "elu",
+            "actor_hidden_dims": [
+                512,
+                256,
+                128
+            ],
+            "critic_hidden_dims": [
+                512,
+                256,
+                128
+            ],
+            "init_noise_std": 1.0
+        },
+        "runner": {
+            "algorithm_class_name": "PPO",
+            "checkpoint": -1,
+            "experiment_name": "A1-walking",
+            "load_run": -1,
+            "log_interval": 1,
+            "max_iterations": 400,
+            "num_steps_per_env": 96,
+            "policy_class_name": "ActorCritic",
+            "record_interval": -1,
+            "resume": false,
+            "resume_path": null,
+            "run_name": "",
+            "runner_class_name": "runner_class_name",
+            "save_interval": 25
+        },
+        "runner_class_name": "OnPolicyRunner",
+        "seed": 6
+    },
+    "env_cfg": {
+        "num_actions": 12,
+        "default_joint_angles": {
+            "FL_hip_joint": 0.0,
+            "FR_hip_joint": 0.0,
+            "RL_hip_joint": 0.0,
+            "RR_hip_joint": 0.0,
+            "FL_thigh_joint": 1.0,
+            "FR_thigh_joint": 1.0,
+            "RL_thigh_joint": 1.0,
+            "RR_thigh_joint": 1.0,
+            "FL_calf_joint": -1.5,
+            "FR_calf_joint": -1.5,
+            "RL_calf_joint": -1.5,
+            "RR_calf_joint": -1.5
+        },
+        "dof_names": [
+            "FR_hip_joint",
+            "FR_thigh_joint",
+            "FR_calf_joint",
+            "FL_hip_joint",
+            "FL_thigh_joint",
+            "FL_calf_joint",
+            "RR_hip_joint",
+            "RR_thigh_joint",
+            "RR_calf_joint",
+            "RL_hip_joint",
+            "RL_thigh_joint",
+            "RL_calf_joint"
+        ],
+        "kp": [
+            65.0,
+            65.0,
+            65.0,
+            65.0,
+            65.0,
+            65.0,
+            65.0,
+            65.0,
+            65.0,
+            65.0,
+            65.0,
+            65.0
+        ],
+        "kd": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "kp_random_scale": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "kd_random_scale": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "termination_if_roll_greater_than": 30,
+        "termination_if_pitch_greater_than": 30,
+        "base_init_pos": [
+            0.0,
+            0.0,
+            0.32
+        ],
+        "base_init_quat": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "episode_length_s": 20.0,
+        "resampling_time_s": 4.0,
+        "gain_resampling_time_s": 2.0,
+        "friction_resampling_time_s": 2.0,
+        "action_scale_mu": [
+            1.0,
+            2.0
+        ],
+        "action_scale_omega": [
+            0.5,
+            2.0
+        ],
+        "action_scale_psi": [
+            -1.5,
+            1.5
+        ],
+        "a": 150,
+        "d": 0.1,
+        "h": [
+            0.27,
+            0.27,
+            0.27
+        ],
+        "h_offset": [
+            0.0,
+            0.0,
+            -0.0,
+            -0.0
+        ],
+        "x_offset": [
+            0.0,
+            0.0,
+            -0.0,
+            -0.0
+        ],
+        "y_offset": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "gc": [
+            0.2,
+            0.2,
+            0.2
+        ],
+        "gp": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "friction": [
+            2.0,
+            1.0,
+            3.0
+        ],
+        "simulate_action_latency": true,
+        "clip_actions": 1.0,
+        "eth_z": true
+    },
+    "obs_cfg": {
+        "num_obs": 31,
+        "noise_std_dof_pos": 0.5,
+        "noise_std_dof_vel": 0.1,
+        "noise_std_euler": 0.5,
+        "noise_std_ang_vel": 0.1,
+        "include_dof_pos": false,
+        "include_dof_vel": false,
+        "include_euler": false,
+        "include_ang_vel": false,
+        "include_foot_contact": true,
+        "include_mu": true,
+        "include_omega": true,
+        "include_psi": true,
+        "include_r": true,
+        "include_theta": true,
+        "include_phi": true,
+        "include_commands": true,
+        "obs_scales": {
+            "lin_vel": 1.0,
+            "dof_pos": 1.0,
+            "dof_vel": 1.0,
+            "ang_vel": 1.0,
+            "euler": 1.0,
+            "foot_contact": 1.0,
+            "mu": 1.0,
+            "omega": 1.0,
+            "psi": 1.0,
+            "r": 1.0,
+            "theta": 1.0,
+            "phi": 1.0
+        }
+    },
+    "reward_cfg": {
+        "tracking_sigma": 0.1,
+        "foot_force_norms_threshold": [
+            80,
+            200
+        ],
+        "reward_scales": {
+            "tracking_lin_vel_x": 0.75,
+            "tracking_lin_vel_y": 0.75,
+            "tracking_ang_vel": 0.5,
+            "lin_vel_z": -2.0,
+            "ang_vel_x": -0.05,
+            "ang_vel_y": -0.2,
+            "work": -0.001
+        }
+    },
+    "command_cfg": {
+        "num_commands": 3,
+        "lin_vel_x_range": [
+            0.0,
+            0.0
+        ],
+        "lin_vel_y_range": [
+            0.0,
+            0.0
+        ],
+        "ang_vel_range": [
+            1.0,
+            1.0
+        ]
+    }
+}
